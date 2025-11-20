@@ -1,0 +1,43 @@
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* horizontal */
+  align-items: center;     /* vertical */
+}
+
+
+.threadLine {
+  
+  min-height: 250px;
+  height: 250px;
+  max-height: 250px;
+  margin-top:125px;
+  width: 5%;;
+  background:
+    repeating-linear-gradient(180deg,red 0 5px,#0000 0 7px);
+  margin: 0 auto;
+  position: relative;
+}
+
+.threadLineFull {
+  
+  border: solid 1px #f00;
+}
+
+.threadLineFull {
+  
+  border: solid 1px #f00;
+}
+
+
+hr {
+  border: none;
+  border-top: 1px dotted #f00;
+  color: #fff;
+  background-color: #fff;
+  height: 1px;
+  width: 50%;
+}
