@@ -37,7 +37,10 @@ function App() {
   }
   return (
     <>
+      <div className='snow'>
+      </div>
       {elements}
+
     </>
   )
 }

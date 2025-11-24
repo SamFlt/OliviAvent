@@ -1,5 +1,6 @@
 
 import './Card.css'
+import { useState } from 'react';
 import giftUrl from './assets/gift.jpg'
 
 function DayCircle(day: number) {
@@ -27,15 +28,27 @@ function Card(day: number, text: string) {
       </>
     )
   } else if (day == currentDay) {
-    return (
-      <>
-        <div className="card">
-          <h2>Card {day}</h2>
-          <div>{canBeOpened ? text : "Nope"}</div>
+
+    let [isOpenened, doOpen] = useState(false)
+    if (!isOpenened) {
+      return (<>
+        <div className="card gift">
+          {dayCircle}
+          <div><button onClick={() => doOpen(true)}>Ouvre-moi !</button></div>
         </div>
-        
-      </>
-    )
+      </>)
+    } else {
+      return (
+        <>
+          <div className="card">
+            {dayCircle}
+            <div>{canBeOpened ? text : "Nope"}</div>
+          </div>
+
+        </>
+      )
+    }
+
   } else {
     return (
       <>

@@ -5,9 +5,13 @@
   padding-bottom: 50px;
   padding-left: 100px;
   padding-right: 100px; 
+  min-height: 10vh;
   border: solid 0.2vw rgb(50,50,50);
 }
 
+.gift {
+  background-image: url("/src/assets/gift.jpg");
+}
 .circle {
   position:relative;
   font-size: 2vh;
