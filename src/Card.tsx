@@ -1,21 +1,54 @@
-import { useState } from 'react'
 
 import './Card.css'
+import giftUrl from './assets/gift.jpg'
 
-
-function Card(num: number, text: string) {
-  const date = new Date();
-  let dev = true;
-  const canBeOpened = dev || (date.getMonth() == 12 && date.getDay() >= num)
+function DayCircle(day: number) {
   return (
     <>
-      <div className="card">
-        <h2>Card {num}</h2>
-        <div>{canBeOpened ? text : "Nope"}</div>
-      </div>
-      
+      <div className="circle">{day}</div>
     </>
   )
+}
+
+function Card(day: number, text: string) {
+  const date = new Date();
+  const dev = true;
+  const currentDay = date.getDate()
+  const dayCircle = DayCircle(day)
+  const canBeOpened = dev || (date.getMonth() == 12 && currentDay >= day)
+  if (day < currentDay) {
+    return (
+      <>
+        <div className="card">
+          {dayCircle}
+          <div>{canBeOpened ? text : "Nope"}</div>
+        </div>
+        
+      </>
+    )
+  } else if (day == currentDay) {
+    return (
+      <>
+        <div className="card">
+          <h2>Card {day}</h2>
+          <div>{canBeOpened ? text : "Nope"}</div>
+        </div>
+        
+      </>
+    )
+  } else {
+    return (
+      <>
+        <div className="card">
+          <div className='img-wrapper'>
+          <div className='img-overlay'></div>
+          <img src={giftUrl}></img>
+          </div>
+        </div>
+        
+      </>
+    )
+  }
 }
 
 export default Card
